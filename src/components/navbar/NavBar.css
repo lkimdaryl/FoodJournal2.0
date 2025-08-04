@@ -1,0 +1,145 @@
+nav {
+    background-color: var(--navBackground);
+    width: fit-content;
+    height: 100vh;
+    position: sticky;
+    top: 0; 
+    left: 0;
+    z-index: 1000; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    width: 100%;
+    text-align: center;
+    
+}
+
+nav a {
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: darkslategray;
+}
+
+.selected-page {
+    background-color: beige;
+}
+
+.selected-page a {
+    color: darkslategray;;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+#logo-container p {
+    margin-top: 0px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#profile img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin: 0;
+}
+
+#profile p {
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 645px) {
+  
+    nav {
+        width: 100%;
+        height: auto;
+        flex-direction: row; 
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    #logo-container {
+        margin: 20px 0 0px 20px;
+    }
+
+    #logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        gap: 10px;
+    }
+    
+    nav li {
+        width: fit-content;
+    }
+    
+    nav a {
+        width: fit-content;
+        font-size: 1.2rem;
+    }
+
+    .selected-page a {
+        color: darkslategray;
+    }
+
+    #profile-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0 0 0;
+    }
+
+    #profile img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #profile a {
+        font-size: 1.2rem;
+        padding: 0;
+    }
+
+    #profile p {
+        display: none;
+    }
+}

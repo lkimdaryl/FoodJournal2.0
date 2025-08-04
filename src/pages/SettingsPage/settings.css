@@ -1,0 +1,123 @@
+.profilePage {
+    font-family: "Reddit Sans Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    color:black;
+    width: 60%;
+    place-self: start center;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.profile-settings {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    place-self: start;
+    place-items: start center;
+}
+
+.profile-section a {
+    place-self: center;
+}
+
+#registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.input-section{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    place-self: center;
+    justify-content: center;
+    column-gap: 100px;
+    row-gap: 20px;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Reddit Sans Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    place-self: start center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.action-button{
+    background-color: #36A7F9; 
+    border-color: #36A7F9;
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    height: 46px;
+    letter-spacing: normal;
+    line-height: 24px;
+    padding: 10px 16px;
+    text-align: center;
+    vertical-align: middle;
+    white-space-collapse: collapse;
+    width: 100px;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+output{
+    color:red;
+    white-space: nowrap;
+    height: 20px;
+    display: block;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-upload-btn {
+    display: inline-block;
+    width: auto;
+    height: auto; 
+    line-height: auto; /* Center text vertically */
+    background-color: #36A7F9; 
+    border-radius: 10px; 
+    border: none; 
+    color: white;
+    font-family: "Reddit Sans Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+    
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}

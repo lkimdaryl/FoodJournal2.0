@@ -1,0 +1,52 @@
+{ "demo_guest" : [
+    {
+        "food_name": "Avocado Toast",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqWUXBtxAtDkBIoTftl0731SAGDdfNV9_X3A&s",
+        "restaurant_name": "Healthy Bites",
+        "rating": 5,
+        "review": "Simple yet delicious with creamy avocado and a hint of lemon.",
+        "tags": "Breakfast, Vegetarian, Healthy",
+        "username": "demo_guest",
+        "profile_pic": ""
+    },
+    {
+        "food_name": "Butter Chicken",
+        "image": "https://feelgoodfoodie.net/wp-content/uploads/2024/02/Easy-Butter-Chicken-TIMG.jpg",
+        "restaurant_name": "Tandoori Tales",
+        "rating": 4,
+        "review": "Rich and creamy with perfectly spiced chicken, great with naan bread.",
+        "tags": "Indian, Curry, Comfort Food",
+        "username": "demo_guest",
+        "profile_pic": ""
+    },
+    {
+        "food_name": "Fish and Chips",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Fish_and_chips_blackpool.jpg/640px-Fish_and_chips_blackpool.jpg",
+        "restaurant_name": "Seaside Diner",
+        "rating": 4,
+        "review": "Crispy batter and flaky fish, served with perfectly cooked fries.",
+        "tags": "British, Seafood, Fried",
+        "username": "demo_guest",
+        "profile_pic": ""
+    },
+    {
+        "food_name": "Beef Pho",
+        "image": "https://www.recipetineats.com/tachyon/2019/04/Beef-Pho_6.jpg?resize=500%2C500",
+        "restaurant_name": "Pho Paradise",
+        "rating": 5,
+        "review": "A soul-warming bowl with aromatic broth and tender beef slices.",
+        "tags": "Vietnamese, Noodles, Comfort Food",
+        "username": "demo_guest",
+        "profile_pic": ""
+    },
+    {
+        "food_name": "Chocolate Lava Cake",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJYg-bd41gp07DGUmjqX24KYf9f6GMce3OEw&s",
+        "restaurant_name": "Sweet Treats",
+        "rating": 5,
+        "review": "Decadent and gooey with a rich chocolate flavor—absolutely divine!",
+        "tags": "Dessert, Chocolate, Indulgent",
+        "username": "demo_guest",
+        "profile_pic": ""
+    }
+]}

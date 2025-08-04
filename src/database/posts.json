@@ -1,0 +1,90 @@
+{
+    "foodie123": [
+        {
+            "food_name": "Pepperoni Pizza",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHA83KUkZL_J-d9CZ8t6MOJ_G7p-svPKKn0g&s",
+            "restaurant_name": "Napoli Pizzeria",
+            "rating": 5,
+            "review": "Crispy crust and perfectly seasoned pepperoni make this a standout pizza.",
+            "tags": "Italian, Pizza, Meat Lovers",
+            "username": "foodie123",
+            "profile_pic": ""
+        },
+        {
+            "food_name": "Tonkotsu Ramen",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe4vohJidXhIALVQ0JA-x-ziJyliTCJLU7mA&s",
+            "restaurant_name": "Ramen Haven",
+            "rating": 4,
+            "review": "Rich and creamy broth with tender pork slices and perfectly cooked noodles.",
+            "tags": "Japanese, Noodles, Comfort Food",
+            "username": "foodie123",
+            "profile_pic": ""
+        },
+        {
+            "food_name": "Greek Salad",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbZG6vMQutnDjAzv37ojuLXAASJ0o5NUQd7Q&s",
+            "restaurant_name": "Mediterranean Delight",
+            "rating": 5,
+            "review": "Fresh and vibrant, with tangy feta and a light vinaigrette.",
+            "tags": "Mediterranean, Salad, Vegetarian",
+            "username": "foodie123",
+            "profile_pic": ""
+        },
+        {
+            "food_name": "BBQ Ribs",
+            "image": "https://www.allrecipes.com/thmb/IWVelWahUb2gQxixWJC2N-HXp0k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/22469-Barbecue-Ribs-ddmfs-2x1-210-e799db142f594b00bb317bb357d0971c.jpg",
+            "restaurant_name": "Smokey's BBQ",
+            "rating": 4,
+            "review": "Fall-off-the-bone tender ribs with a smoky, tangy barbecue sauce.",
+            "tags": "American, Barbecue, Meat Lovers",
+            "username": "foodie123",
+            "profile_pic": ""
+        },
+        {
+            "food_name": "Tacos al Pastor",
+            "image": "https://www.seriouseats.com/thmb/4kbwN13BlZnZ3EywrtG2AzCKuYs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210712-tacos-al-pastor-melissa-hom-seriouseats-37-f72cdd02c9574bceb1eef1c8a23b76ed.jpg",
+            "restaurant_name": "El Taco Loco",
+            "rating": 5,
+            "review": "Juicy and flavorful pork tacos with a hint of pineapple sweetness.",
+            "tags": "Mexican, Tacos, Street Food",
+            "username": "foodie123",
+            "profile_pic": ""
+        }
+    ],
+    "sushiLover" : [
+        {
+        "food_name": "Sushi Platter",
+        "image": "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/ezgtirbw/15509e1b-d2b7-4de2-8fbf-62b89bfab686.jpg",
+        "restaurant_name": "Sakura Sushi",
+        "rating": 4,
+        "review": "A beautifully presented sushi platter with fresh fish and a variety of flavors.",
+        "tags": "Japanese, Sushi, Seafood",
+        "username": "sushiLover",
+        "profile_pic": ""
+        }
+    ],
+    "burgerFanatic": [
+        {
+        "food_name": "Cheeseburger",
+        "image": "https://www.recipetineats.com/tachyon/2022/08/Stack-of-cheeseburgers.jpg",
+        "restaurant_name": "Burger Haven",
+        "rating": 3,
+        "review": "The burger was decent but the patty was slightly overcooked for my taste.",
+        "tags": "American, Burgers, Casual",
+        "username": "burgerFanatic",
+        "profile_pic": ""
+        }
+    ],
+    "spiceAddict" : [
+        {
+        "food_name": "Pad Thai",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3jZGpkzpb6nuIzfe5FNluzCuEBEA2WEwEvw&s",
+        "restaurant_name": "",
+        "rating": 4,
+        "review": "A flavorful dish with a great balance of sweet, tangy, and savory notes.",
+        "tags": "Thai, Noodles, Spicy",
+        "username": "spiceAddict",
+        "profile_pic": ""
+        }
+    ]
+}

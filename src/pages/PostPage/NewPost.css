@@ -1,0 +1,57 @@
+.new-entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--cardBackground);
+    width: clamp(250px, 80%, 700px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    margin: 50px auto;
+    place-content: start center;
+    color: var(--navBackground);
+    text-align: center;
+}
+
+.new-entry-form h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: cursive;
+    text-shadow: white 2px 1px 4px;
+}
+
+.entry-label {
+    margin-top: 10px;   
+}
+
+.entry-input {
+    width: clamp(230px, 80%, 650px);
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+}
+
+#comments {
+    resize: none;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.form-bttn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form-bttn {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #36A7F9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}

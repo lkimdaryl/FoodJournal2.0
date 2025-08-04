@@ -1,0 +1,83 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: clamp(250px, 80%, 700px); 
+  height: fit-content;
+  padding: 20px; 
+  border-radius: 20px; 
+  background-color: var(--cardBackground);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; 
+  margin: 50px auto;
+  place-content: start center;
+  color: var(--navBackground);
+}
+
+.login-container h1 {
+  text-align: center;
+  font-size: 3rem;
+  width: 100%;
+  font-family: cursive;
+  text-shadow: white 2px 1px 4px;
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+form label {
+  font-size: 1.5rem;
+}
+
+form input {
+  width: clamp(200px, 100%, 400px);
+  height: 35px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.submit {
+  width: 30%;
+  border-radius: 10px;
+  background-color: #36A7F9;
+  color: white;
+  margin-top: 10px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.notice {
+  margin-top: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+#login-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-signup a {
+  font-size: 1.2rem;
+}
+
+.sign-up-link {
+  margin-bottom: 40px;
+}

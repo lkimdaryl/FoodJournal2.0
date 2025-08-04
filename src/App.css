@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: beige;
+}
+
+@media screen and (max-width: 645px) {
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+}
