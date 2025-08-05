@@ -8,7 +8,7 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const usernameInputRef = useRef<HTMLInputElement>(null);
-  const baseUrl = 'http://localhost:6542';
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   const fetchUrl = `${baseUrl}/api/v1/auth/login`;
 
   useEffect(() => {

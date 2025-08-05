@@ -19,7 +19,7 @@ export default function UserPage() {
     console.log(username, userId, profilePic);
         
     const currentUserId = Cookies.get('userId');
-    const baseUrl = 'http://localhost:6542';
+    const baseUrl = import.meta.env.VITE_APP_BASE_URL;
     const fetchUrl = userId ? `${baseUrl}/api/v1/post_review/get_posts_by_id?post_id=${userId}` : undefined;
     console.log(fetchUrl);
 

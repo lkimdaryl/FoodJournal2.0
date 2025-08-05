@@ -14,7 +14,7 @@ export default function SignUp() {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
-  const baseUrl = 'http://localhost:6542';
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   const fetchUrl = `${baseUrl}/api/v1/auth/create_user`;
 
   const navigate = useNavigate();

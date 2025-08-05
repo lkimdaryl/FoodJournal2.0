@@ -21,7 +21,7 @@ interface Post {
 export default function MyPage() {
     const navigate = useNavigate();
     const signedIn = Cookies.get('signedIn') === 'true';
-    const baseUrl = 'http://localhost:6542';
+    const baseUrl = import.meta.env.VITE_APP_BASE_URL;
     const fetchUrl = `${baseUrl}/api/v1/post_review/get_posts_by_id?user_id=${Cookies.get('userId')}`;
 
     const [allMyPosts, setAllMyPosts] = useState<Post[]>([]);

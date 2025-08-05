@@ -20,7 +20,7 @@ export default function NewPost() {
     const [rating, setRating] = useState(0);
     const [imageData, setImageData] = useState<string | null>(null);
 
-    const baseUrl = 'http://localhost:6542';
+    const baseUrl = import.meta.env.VITE_APP_BASE_URL;
     const fetchUrl = `${baseUrl}/api/v1/post_review/create_post_review?access_token=${Cookies.get('accessToken')}`;
 
 

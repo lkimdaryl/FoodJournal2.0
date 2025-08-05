@@ -34,7 +34,7 @@ export default function EditProfile() {
   const [invalidEmailMessage, setInvalidEmailMessage] = useState<string>('');
   const [invalidPasswordMessage, setInvalidPasswordMessage] = useState<string>('');
 
-  const baseUrl = 'http://localhost:6542';
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
   useEffect(() => {
     const accesToken = Cookies.get('accessToken');

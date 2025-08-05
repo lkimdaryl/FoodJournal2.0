@@ -7,8 +7,9 @@ import DefaultPic from '/blankProfile.png?url'
 export default function Home() {
 
     const allPosts = Object.values(posts).flat();
-    const baseUrl = 'http://localhost:6542';
+    const baseUrl = import.meta.env.VITE_APP_BASE_URL;
     const fetchUrl = `${baseUrl}/api/v1/post_review/get_post_review`;
+    console.log(fetchUrl);
 
     return (
         <div className='post-container'>

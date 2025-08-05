@@ -91,7 +91,7 @@ export default function EditPost() {
             delete updatedPost.username;
 
             console.log("Updated Post Data:", updatedPost);
-            const baseUrl = 'http://localhost:6542';
+            const baseUrl = import.meta.env.VITE_APP_BASE_URL;
             const fetchUrl = `${baseUrl}/api/v1/post_review/update_post_review?access_token=${Cookies.get('accessToken')}&id=${post.id}`;
 
             fetch(fetchUrl, {

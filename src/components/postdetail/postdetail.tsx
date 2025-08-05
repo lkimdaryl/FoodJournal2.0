@@ -53,7 +53,7 @@ export default function PostDetail({ post, onClose }: PostDetailProps) {
                 onClose();
             }
         } else {
-            const baseUrl = 'http://localhost:6542';
+            const baseUrl = import.meta.env.VITE_APP_BASE_URL;
             const fetchUrl = `${baseUrl}/api/v1/post_review/delete_post_review?id=${post.id}&access_token=${Cookies.get('accessToken')}`;
             try {
                 fetch(fetchUrl, {method: 'POST'})
