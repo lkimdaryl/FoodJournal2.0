@@ -1,5 +1,5 @@
 import './settings.css'
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import Cookies from 'js-cookie';
 import PostProfile from '../../components/postprofile/postprofile';
 import DefaultPic from '/blankProfile.png?url';
