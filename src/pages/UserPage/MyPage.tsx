@@ -84,7 +84,7 @@ export default function MyPage() {
                     key={index}
                     id={post.id}
                     user_id={post.user_id}
-                    username={post.username || Cookies.get('user')}
+                    username={post.username}
                     profile_pic={profilePic}
                     food_name={post.food_name}
                     rating={post.rating}

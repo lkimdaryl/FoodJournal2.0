@@ -129,7 +129,7 @@ export default function EditProfile() {
 
   const validateEmail = (email: string): boolean => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setInvalidEmailMessage('');
     setInvalidPasswordMessage('');
@@ -218,7 +218,7 @@ export default function EditProfile() {
             />}
         </div>
 
-        <form className="form" id="registrationForm" onSubmit={handleSubmit}>
+        <form className="form" id="registrationForm">
           <div className="input-section">
             <div>
                 <label htmlFor="first_name"><h4>First name: </h4></label>

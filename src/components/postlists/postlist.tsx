@@ -26,7 +26,7 @@ interface PostListProps {
 }333
 
 
-const PostList: React.FC<PostListProps> = ({ fetchUrl, isUserPage, username, profilePic, userId }) => {
+const PostList: React.FC<PostListProps> = ({ fetchUrl, isUserPage}) => {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {

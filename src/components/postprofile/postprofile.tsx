@@ -10,7 +10,7 @@ interface PostProfileProps {
     postUserId?: string | number;
     currentUserId?: string | number;
 }
-export default function PostProfile({profilePic, username, size, postUserId, currentUserId}: PostProfileProps) {
+export default function PostProfile({profilePic, username, postUserId, currentUserId}: PostProfileProps) {
 
     const currentPath = useLocation().pathname;
     const navigate = useNavigate();    

@@ -1,27 +1,33 @@
-// UserPage.js
-// import '../Home/Home.css';
 import './User.css';
-// import NavBar from '../../components/navbar';
-// import React from 'react';
 import { useLocation } from 'react-router-dom';
 import PostList from '../../components/postlists/postlist.tsx'
 import PostCard from '../../components/postcard/postcard';
-import { useState } from 'react';
-import posts from '../../database/posts.json';
+import rawPosts from '../../database/posts.json';
 import Cookies from 'js-cookie';
 
+type Post = {
+  food_name: string;
+  image: string;
+  restaurant_name: string;
+  rating: number;
+  review: string;
+  tags: string;
+  username: string;
+  profile_pic: string;
+};
+
+type PostsByUser = {
+  [username: string]: Post[];
+};
 
 export default function UserPage() {
     const location = useLocation();
     const user = Cookies.get('username'); // for demonstration purposes, using cookie to get username
-
-    const { username, userId, profilePic } = location.state || {};
-    console.log(username, userId, profilePic);
-        
+    const posts = rawPosts as PostsByUser;
+    const { username, userId, profilePic } = location.state || {};   
     const currentUserId = Cookies.get('userId');
     const baseUrl = import.meta.env.VITE_APP_BASE_URL;
     const fetchUrl = userId ? `${baseUrl}/api/v1/post_review/get_posts_by_id?post_id=${userId}` : undefined;
-    console.log(fetchUrl);
 
     return (
         <div className='post-container'>
@@ -30,7 +36,7 @@ export default function UserPage() {
                 <span>{user}</span>
                 {/* <span>{userPosts[0].username}</span> */}
             </div>
-            {posts[user]?.map((post: any, index: any) => (
+            {user && posts[user]?.map((post: Post, index: number) => (
                 <PostCard
                     key={index}
                     id={index}
