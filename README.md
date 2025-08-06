@@ -4,7 +4,7 @@ Welcome to Food Journal! This web app empowers food lovers to review meals, shar
 
 ## Installation
 No installation required! Food Journal is a web app. Simply navigate to our website to get started.
-- https://foodjournal2.netlify.app/
+- https://foodjournalv2.netlify.app/
 
 ## Usage
 - **Explore:** Browse the homepage to see posts from other food enthusiasts.
