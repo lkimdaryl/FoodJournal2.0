@@ -38,12 +38,12 @@ form {
 
 form label {
   font-size: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 form input {
   width: clamp(200px, 100%, 400px);
   height: 35px;
-  margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #000000;
   text-align: center;
@@ -80,4 +80,14 @@ a {
 
 .sign-up-link {
   margin-bottom: 40px;
+}
+
+.error-message {
+  color: red;
+  min-height: 1.2em; /* Reserve space equal to one line of text */
+  margin-top: 0.5rem;
+}
+
+.forgot {
+  margin-top: 10px;
 }

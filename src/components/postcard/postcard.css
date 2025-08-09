@@ -55,7 +55,7 @@
 @media screen and (max-width: 645px) {
 
   .min-post-container {
-    width: clamp(250px, 100%, 400px);
+    width: clamp(250px, 80%, 400px);
   }
 
   .min-post-image {
