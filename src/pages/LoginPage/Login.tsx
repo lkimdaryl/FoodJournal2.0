@@ -1,6 +1,7 @@
 import './Login.css';
 import React, { useEffect, useState, useRef } from 'react';
 import Cookies from 'js-cookie';
+import DefaultPic from '/blankProfile.png?url'
 
 export default function Login() {
   const [username, setUsername] = useState<string>('');
@@ -46,12 +47,11 @@ export default function Login() {
         
         if (response.ok){
           const data = await response.json();
-          console.log(data);
           Cookies.set('signedIn', 'true');
           Cookies.set('user', username);
           Cookies.set('accessToken', data.access_token);
           Cookies.set('userId', data.user_id);
-          Cookies.set('profilePicture', data.profile_picture);
+          Cookies.set('profilePicture', data.profile_picture? data.profile_picture : DefaultPic);
           window.location.href = "/mypage";
         } else {
           setError('Invalid username or password.');

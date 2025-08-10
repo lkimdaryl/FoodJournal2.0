@@ -90,7 +90,6 @@ export default function Recipes() {
     };
 
     selectPastaOfTheWeek();
-    console.log(pastaOfTheWeek);
   }, [pastaBank]);
 
   const searchRecipes = async (e: { preventDefault: () => void; }) => {

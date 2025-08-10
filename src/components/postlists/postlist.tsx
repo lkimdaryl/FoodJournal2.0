@@ -41,7 +41,6 @@ const PostList: React.FC<PostListProps> = ({ fetchUrl, isUserPage}) => {
       .then(response => response.json())
       .then((data: Post[]) => {
         setPosts(data);
-        console.log(data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, [fetchUrl, isUserPage]);

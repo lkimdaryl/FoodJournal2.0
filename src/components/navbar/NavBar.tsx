@@ -12,7 +12,7 @@ export default function NavBar() {
     const accessToken = Cookies.get('accessToken');
     
     const [username, setUserName] = useState<string | undefined>(Cookies.get('user'));
-    const [profilePic, setProfilePic] = useState<string | undefined>(Cookies.get('profilePicture'))
+    const [profilePic, setProfilePic] = useState<string | undefined>(Cookies.get('profilePicture') || DefaultPic);
     
     const handleLogout = () => {
         Object.keys(Cookies.get()).forEach(cookie => Cookies.remove(cookie));
@@ -23,7 +23,7 @@ export default function NavBar() {
     useEffect(() => {
         const handleUserInfoUpdate = () => {
             setUserName(Cookies.get('user'));
-            setProfilePic(Cookies.get('profilePicture'));
+            setProfilePic(Cookies.get('profilePicture') || DefaultPic);
         }  
 
         window.addEventListener('userInfoUpdated', handleUserInfoUpdate);
@@ -64,7 +64,7 @@ export default function NavBar() {
                 <ul id="profile-container">
                     <li id="profile">
                         <Link to={username === "demo_guest"? "/demouserpage" : "/mypage"}>
-                            <img src={Cookies.get("profilePicture") || profilePic ||DefaultPic} alt="Profile" />
+                            <img src={profilePic} alt="Profile" />
                             <p>{username}</p>
                         </Link>
                     </li>

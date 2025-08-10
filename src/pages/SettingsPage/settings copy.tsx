@@ -1,5 +1,5 @@
 import './settings.css'
-import React, { useState, useEffect, ChangeEvent, useRef } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import Cookies from 'js-cookie';
 import PostProfile from '../../components/postprofile/postprofile';
 import DefaultPic from '/blankProfile.png?url';
@@ -16,32 +16,30 @@ interface UserData {
 
 export default function EditProfile() {
   const isSignedIn = Cookies.get('signedIn') === 'true';
-  useEffect(() => {
-    if (!isSignedIn) {
-      window.location.href = '/login';
-    }
-  }, [isSignedIn]);
-  
-  const initialStateRef = useRef<Partial<UserData>>({});
+  if (!isSignedIn) {
+    window.location.href = '/login'; // Redirect to login if not signed in
+  }
+
+  const [initialState, setInitialState] = useState<Partial<UserData>>({});
   const [profileImage, setProfileImage] = useState<string>(DefaultPic);
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [userName, setUserName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [newPassword, setPassword] = useState<string>(''); 
+  const [newPassword, setPassword] = useState<string>('');
   const [verifyPassword, comfirmPassword] = useState<string>('');
 
   const [isReadOnly, setIsReadOnly] = useState<boolean>(true);
+  const [invalidUsernameMessage, setInvalidUsernameMessage] = useState<string>('');
   const [invalidEmailMessage, setInvalidEmailMessage] = useState<string>('');
   const [invalidPasswordMessage, setInvalidPasswordMessage] = useState<string>('');
 
-  const formData = initialStateRef.current;
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
-  const accessToken = Cookies.get('accessToken');
 
   useEffect(() => {
-    if (accessToken) {
-      const url = `${baseUrl}/api/v1/auth/get_user?accessToken=${accessToken}`;
+    const accesToken = Cookies.get('accessToken');
+    if (accesToken) {
+      const url = `${baseUrl}/api/v1/auth/get_user?accessToken=${accesToken}`;
       fetch(url, {
         method: 'GET',
         headers: {
@@ -50,24 +48,22 @@ export default function EditProfile() {
       })
         .then(response => response.json())
         .then((data: UserData) => {
-          initialStateRef.current = data;
+          setInitialState({
+            first_name: data.first_name || '',
+            last_name: data.last_name || '',
+            username: data.username || '',
+            email: data.email || '',
+            profile_picture: data.profile_picture || DefaultPic
+          });
+
           setFirstName(data.first_name);
           setLastName(data.last_name);
           setUserName(data.username);
           setEmail(data.email);
-          setProfileImage(data.profile_picture? data.profile_picture : DefaultPic);
+          setProfileImage(data.profile_picture);
         });
     }
   }, []);
-
-  const resetHooks = () => {
-    setFirstName(initialStateRef.current.first_name || '');
-    setLastName(initialStateRef.current.last_name || '');
-    setUserName(initialStateRef.current.username || '');
-    setEmail(initialStateRef.current.email || '');
-    setProfileImage(initialStateRef.current.profile_picture || DefaultPic);
-    setPassword('');
-  }
 
   const handlePictureChange = (event: ChangeEvent<HTMLInputElement>) => {
     const pic = event.target.files?.[0];
@@ -80,99 +76,125 @@ export default function EditProfile() {
     }
   };
 
-  const validateField = (name: string, value: string): boolean => {
-    switch (name) {
-      case 'email':
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)){
-          setInvalidEmailMessage('Invalid email address');
-          return false;
-        } else {
-          setInvalidEmailMessage('');
-        }
-        break;
-      case 'verifyPassword':
-        if (value !== newPassword){
-          setInvalidPasswordMessage('Passwords do not match');
-          return false
-        } else {
-          setInvalidPasswordMessage('')
-        }
-        break;
-      default:
-        break;
-    }
-    return true;
-  };
-
   const handleFirstNameChange = (event: ChangeEvent<HTMLInputElement>) => setFirstName(event.target.value);
   const handleLastNameChange = (event: ChangeEvent<HTMLInputElement>) => setLastName(event.target.value);
-  const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => setUserName(event.target.value);
+
+  const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.value;
+    if (!name) {
+      setInvalidUsernameMessage('');
+    } else if (name.length < 3 || name.length > 20) {
+      setInvalidUsernameMessage('Username must be between 3 and 20 characters long');
+      setUserName(initialState.username || '');
+    } else {
+      setUserName(name);
+      setInvalidUsernameMessage('');
+    }
+  };
+
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     const emailInput = event.target.value;
-    setEmail(emailInput);
-    validateField('email', emailInput)
+    if (!emailInput) {
+      setInvalidEmailMessage('');
+      setEmail(initialState.email || '');
+    } else if (!validateEmail(emailInput)) {
+      setInvalidEmailMessage('Invalid email address');
+    } else {
+      setEmail(emailInput);
+      setInvalidEmailMessage('');
+    }
   };
+
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
   const VerifyNewPassword = (event: ChangeEvent<HTMLInputElement>) => comfirmPassword(event.target.value);
+
   const handleEditButton = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setIsReadOnly(false);
   };
+
   const handleCancelButton = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setInvalidEmailMessage('');
     setInvalidPasswordMessage('');
+    setInvalidUsernameMessage('');
     setIsReadOnly(true);
-    resetHooks();
+    setFirstName(initialState.first_name || '');
+    setLastName(initialState.last_name || '');
+    setUserName(initialState.username || '');
+    setEmail(initialState.email || '');
+    setPassword('');
     (document.querySelector('.form') as HTMLFormElement)?.reset();
   };
 
+  const validateEmail = (email: string): boolean => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const isValid =
-      validateField('email', email) &&
-      validateField('verifyPassword', verifyPassword);
+    setInvalidEmailMessage('');
+    setInvalidPasswordMessage('');
+    setInvalidUsernameMessage('');
 
-    if (!isValid) return;
+    if (newPassword !== verifyPassword) {
+      setInvalidPasswordMessage('Passwords do not match');
+      return;
+    }
+    if (!validateEmail(email)) {
+      setInvalidEmailMessage('Invalid email address');
+      return;
+    }
 
     setIsReadOnly(true);
+    const accesToken = Cookies.get('accessToken');
+    if (accesToken) {
+      const updateUrl = `${baseUrl}/api/v1/auth/update_user?accessToken=${accesToken}`;
+      const updatedData: Partial<UserData> = {};
+      if (firstName !== initialState.first_name) updatedData.first_name = firstName;
+      if (lastName !== initialState.last_name) updatedData.last_name = lastName;
+      if (userName !== initialState.username) updatedData.username = userName;
+      if (newPassword) updatedData.password = newPassword;
+      if (email !== initialState.email) updatedData.email = email;
+      if (profileImage !== initialState.profile_picture) updatedData.profile_picture = profileImage;
 
-    const updateUrl = `${baseUrl}/api/v1/auth/update_user?accessToken=${accessToken}`;
-    const updatedData: Partial<UserData> = {};
-    if (firstName !== initialStateRef.current.first_name) updatedData.first_name = firstName;
-    if (lastName !== initialStateRef.current.last_name) updatedData.last_name = lastName;
-    if (userName !== initialStateRef.current.username) updatedData.username = userName;
-    if (newPassword) updatedData.password = newPassword;
-    if (email !== initialStateRef.current.email) updatedData.email = email;
-    if (profileImage !== initialStateRef.current.profile_picture) updatedData.profile_picture = profileImage;
-    initialStateRef.current = updatedData;
-    delete initialStateRef.current.password;
-    
-
-    try {
-      const response = await fetch(updateUrl, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedData)
+      setInitialState({
+        first_name: firstName,
+        last_name: lastName,
+        username: userName,
+        email: email,
+        profile_picture: profileImage
       });
 
-      if (!response.ok){
-        const errorData = await response.json().catch(() => ({}));
-        alert(`User could not be updated. ${errorData.detail || ''} Please try again.`);
-        setIsReadOnly(true);
-        throw new Error('User could not be updated.')
+      try {
+        const response = await fetch(updateUrl, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(updatedData)
+        });
+        const data: UserData = await response.json();
+
+        if (data.detail) {
+          alert(`User could not be updated. ${data.detail}. Please try again.`);
+          setFirstName(initialState.first_name || '');
+          setLastName(initialState.last_name || '');
+          setUserName(initialState.username || '');
+          setEmail(initialState.email || '');
+          setProfileImage(initialState.profile_picture || '');
+          setIsReadOnly(true);
+          throw new Error('User could not be updated.')
+        }
+
+        Cookies.set('user', userName);
+        Cookies.set('profilePicture', profileImage)
+        window.dispatchEvent(new Event('userInfoUpdated'));
+        
+      } catch (error) {
+        console.error('Error:', error);
       }
-      Cookies.set('user', userName);
-      Cookies.set('profilePicture', profileImage)
-      window.dispatchEvent(new Event('userInfoUpdated'));
-    } catch (error) {
-      console.error('Error:', error);
     }
     (document.getElementById('registrationForm') as HTMLFormElement)?.reset();
   };
-
 
   return (
     <div className="profilePage">
@@ -240,7 +262,7 @@ export default function EditProfile() {
                     minLength={3} 
                     readOnly={isReadOnly}
                 />
-                {/* <output>{invalidUsernameMessage}</output> */}
+                <output>{invalidUsernameMessage}</output>
             </div>
 
             <div>
@@ -290,6 +312,7 @@ export default function EditProfile() {
                   className="submit-button action-button" 
                   onClick={isReadOnly? handleEditButton:handleSubmit}
                   disabled={
+                      !!invalidUsernameMessage || 
                       !!invalidEmailMessage}> 
                   {isReadOnly? 'Edit':'Save'}
               </button>

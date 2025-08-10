@@ -83,11 +83,6 @@ export default function SignUp() {
         } catch (error) {
           console.error('Error during sign up:', error);
         }
-
-        alert("Sign up successful! Redirecting to login page...");
-        setTimeout(() => {
-          navigate('/login');
-        }, 1000);
       }
     };
 
