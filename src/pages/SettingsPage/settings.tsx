@@ -35,7 +35,6 @@ export default function EditProfile() {
   const [invalidEmailMessage, setInvalidEmailMessage] = useState<string>('');
   const [invalidPasswordMessage, setInvalidPasswordMessage] = useState<string>('');
 
-  const formData = initialStateRef.current;
   const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   const accessToken = Cookies.get('accessToken');
 
@@ -240,7 +239,6 @@ export default function EditProfile() {
                     minLength={3} 
                     readOnly={isReadOnly}
                 />
-                {/* <output>{invalidUsernameMessage}</output> */}
             </div>
 
             <div>
